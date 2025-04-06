@@ -1,0 +1,22 @@
+<!-- views/newMondayRecords.ejs -->
+
+
+<main class="main">
+    <section class="new-record-section">
+      <h2>Add New Record</h2>
+      <form action="/wednesday/records" method="POST" enctype="multipart/form-data">
+        <div>
+          <label for="file">File:</label>
+          <input type="file" id="file" name="file" required>
+        </div>
+        <div>
+          <label for="description">Description:</label>
+          <textarea id="description" name="description" required></textarea>
+        </div>
+        <button type="submit">Add Record</button>
+      </form>
+    </section>
+  </main>
+  
+  
+  

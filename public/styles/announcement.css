@@ -1,0 +1,33 @@
+
+
+    /* custom css for announcements/////////////////////////////////////////////////// */
+
+   
+    .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+    
+      .gallery-item a {
+        display: block;
+      }
+    
+      .gallery-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    
+      .gallery-item {
+        width: 100%;
+        height: 250px; /* Set a fixed height */
+      }
+    
+      .gallery .col-lg-3, .gallery .col-md-4 {
+        padding: 10px; /* Add some spacing between items */
+      }
+    
+    
+    

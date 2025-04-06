@@ -1,0 +1,19 @@
+<!-- views/newAnnouncement.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Announcement</title>
+</head>
+<body>
+  <h1>Add Announcement</h1>
+  <form action="/announcements" method="POST" enctype="multipart/form-data">
+    <div>
+      <label for="image">Image:</label>
+      <input type="file" id="image" name="image" accept="image/*" required>
+    </div>
+    <button type="submit">Add Announcement</button>
+  </form>
+</body>
+</html>

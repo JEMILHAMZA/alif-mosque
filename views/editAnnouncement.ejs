@@ -1,0 +1,26 @@
+<!-- views/editAnnouncement.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Announcement</title>
+</head>
+<body>
+  <h1>Edit Announcement</h1>
+  <form action="/announcements/edit/<%= announcement._id %>" method="POST" enctype="multipart/form-data">
+    <div>
+      <label for="image">Image:</label>
+      <input type="file" id="image" name="image" accept="image/*">
+    </div>
+   
+    <% if (announcement.contentType === 'application/pdf') { %>
+      <p>Current Pdf:  <a href="/announcements/image/<%= announcement._id %>" target="_blank">View PDF</a></p>
+    <% } else { %>
+      <img src="/announcements/image/<%= announcement._id %>" alt="Current Image" style="max-width: 200px;">
+    <% } %>
+    <button type="submit">Update Announcement</button>
+  </form>
+</body>
+</html>
+

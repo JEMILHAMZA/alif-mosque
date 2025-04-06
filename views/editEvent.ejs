@@ -1,0 +1,42 @@
+<!-- views/editEvent.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Event</title>
+</head>
+<body>
+  <h1>Edit Event</h1>
+  <form action="/events/edit/<%= event._id %>" method="POST" enctype="multipart/form-data">
+    <div>
+      <label for="bookTitle">Title:</label>
+      <input type="text" id="bookTitle" name="bookTitle" value="<%= event.bookTitle %>" required>
+    </div>
+    <div>
+      <label for="teacher">Teacher:</label>
+      <input type="text" id="teacher" name="teacher" value="<%= event.teacher %>" required>
+    </div>
+    <div>
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" required><%= event.description %></textarea>
+    </div>
+    <div>
+      <label for="dateAndDuration">Date and Duration:</label>
+      <input type="text" id="dateAndDuration" name="dateAndDuration" value="<%= event.dateAndDuration %>" required>
+    </div>
+    <div>
+      <label for="day">Day:</label>
+      <input type="text" id="day" name="day" value="<%= event.day %>" required>
+    </div>
+    <div>
+      <label for="imageOfBook">Image:</label>
+      <% if (event.imageOfBook) { %>
+        <img src="/events/image/<%= event._id %>" alt="Event Image" style="max-width: 200px;">
+      <% } %>
+      <input type="file" id="imageOfBook" name="imageOfBook">
+    </div>
+    <button type="submit">Update Event</button>
+  </form>
+</body>
+</html>

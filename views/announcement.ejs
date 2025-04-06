@@ -1,0 +1,37 @@
+<%- include('partials/header') %>
+<link rel="stylesheet" href="styles/announcement.css ">
+<main class="main">
+  <!-- Gallery Section -->
+  <section id="announcements" class="gallery section">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Announcements</h2>
+      <p>Here you can find new Announcements, Blogs, Events, or Muhadera Schedules</p>
+    </div><!-- End Section Title -->
+
+    <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+      <div class="row g-0" id="announcement-container" data-page="<%= page %>">
+        <% announcements.forEach(announcement => { %>
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="/announcements/image/<%= announcement._id %>" class="glightbox" data-gallery="images-gallery">
+                <img src="/announcements/image/<%= announcement._id %>" alt="" class="img-fluid" height="400" width="400">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+        <% }) %>
+      </div>
+     
+      <% if (showMore) { %>
+        <div class="text-center">
+          <button id="show-more" class="btn btn-primary">Show More</button>
+        </div>
+      <% } %>
+    </div>
+  </section><!-- /Gallery Section -->
+</main>
+
+<%- include('partials/footer') %>
+<script src="/scripts/announcement.js"></script>
+
+

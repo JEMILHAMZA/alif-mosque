@@ -1,0 +1,38 @@
+
+/* custom css for announcements/////////////////////////////////////////////////// */
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px; /* Add padding to ensure space for text */
+}
+
+.gallery-item a {
+  display: block;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-item {
+  width: 100%;
+  height: auto; /* Change to auto to allow for text */
+  min-height: 250px; /* Ensure minimum height */
+}
+
+.gallery .col-lg-3, .gallery .col-md-4 {
+  padding: 10px; /* Add some spacing between items */
+}
+
+.gallery-item p {
+  color: #000; /* Ensure text color contrasts with background */
+  font-size: 14px; /* Adjust font size as necessary */
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+

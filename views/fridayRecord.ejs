@@ -1,0 +1,40 @@
+<%- include('partials/header') %>
+<link rel="stylesheet" href="styles/mondayRecord.css ">
+
+<main class="main">
+  <section id="announcements" class="gallery section">
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Friday Records</h2>
+      <p>Here you can find the latest Friday Records</p>
+    </div>
+
+    <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+      <div class="row g-0" id="announcement-container" data-page="<%= page %>">
+        <% records.forEach(record => { %>
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <video width="320" height="240" controls>
+                <source src="/friday/records/file/<%= record._id %>" type="<%= record.contentType %>">
+                Your browser does not support the video tag.
+                <p><a href="/<%= record.file %>">View File</a></p>
+              </video>
+              <p>Description: <%= record.description %></p>
+              <p><a href="/friday/records/file/<%= record._id %>" download>Download File</a></p>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+
+      <% if (showMore) { %>
+        <div class="text-center">
+          <button id="show-more" class="btn btn-primary">Show More</button>
+        </div>
+      <% } %>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>
+
+<script src="/scripts/fridayRecord.js"></script>
+

@@ -1,0 +1,38 @@
+<%- include('partials/header') %>
+
+<main class="main">
+  <section id="imam" class="doctors section">
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Imams</h2>
+      <p>Below are Alif Mesjid's respected imams and administrators</p>
+    </div>
+    <div class="container">
+      <div class="row gy-4">
+        <% imams.forEach(imam => { %>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="team-member d-flex align-items-start">
+              <div class="pic"><img src="/imams/image/<%= imam._id %>" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4><%= imam.name %></h4>
+                <span><%= imam.title %></span>
+                <p><%= imam.description %></p>
+                <div class="social">
+                  <% if (imam.twitter) { %><a href="<%= imam.twitter %>" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter"></i></a><% } %>
+                  <% if (imam.facebook) { %><a href="<%= imam.facebook %>" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a><% } %>
+                  <% if (imam.instagram) { %><a href="<%= imam.instagram %>" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a><% } %>
+                  <% if (imam.linkedin) { %><a href="<%= imam.linkedin %>" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a><% } %>
+                  <% if (imam.tiktok) { %><a href="<%= imam.tiktok %>" target="_blank" rel="noopener noreferrer"><i class="bi bi-tiktok"></i></a><% } %>
+                  <% if (imam.youtube) { %><a href="<%= imam.youtube %>" target="_blank" rel="noopener noreferrer"><i class="bi bi-youtube"></i></a><% } %>
+                  <% if (imam.whatsapp) { %><a href="<%= imam.whatsapp %>" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp"></i></a><% } %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>
+

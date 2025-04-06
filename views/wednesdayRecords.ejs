@@ -1,0 +1,34 @@
+<main class="main">
+  <section class="records-section">
+    <h2>Wednesday Records</h2>
+    <a href="/wednesday/records/new">Add New Record</a>
+    <ul>
+      <% if (records.length === 0) { %>
+        <li>No records found</li>
+      <% } %>
+      <% records.forEach(record => { %>
+        <li>
+          <% if (record.contentType.startsWith('video')) { %>
+            <video width="320" height="240" controls>
+              <source src="/wednesday/records/file/<%= record._id %>" type="<%= record.contentType %>">
+              Your browser does not support the video tag.
+            </video>
+          <% } else if (record.contentType.startsWith('audio')) { %>
+            <audio controls>
+              <source src="/wednesday/records/file/<%= record._id %>" type="<%= record.contentType %>">
+              Your browser does not support the audio tag.
+            </audio>
+          <% } %>
+          <p><a href="/wednesday/records/file/<%= record._id %>" download="<%= record.filename %>">Download File</a></p>
+          <p>Description: <%= record.description %></p>
+          <a href="/wednesday/records/edit/<%= record._id %>">Edit</a>
+          <form action="/wednesday/records/delete/<%= record._id %>" method="POST" style="display:inline;">
+            <button type="submit">Delete</button>
+          </form>
+        </li>
+      <% }) %>
+    </ul>
+  </section>
+</main>
+
+  

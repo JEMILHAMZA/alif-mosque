@@ -1,0 +1,32 @@
+<!-- views/editMondayRecords.ejs -->
+
+<main class="main">
+  <section class="edit-record-section">
+    <h2>Edit Record</h2>
+    <form action="/monday/records/edit/<%= record._id %>" method="POST" enctype="multipart/form-data">
+      <div>
+        <label for="file">File:</label>
+        <input type="file" id="file" name="file">
+        <% if (record.contentType.startsWith('video')) { %>
+          <video width="320" height="240" controls>
+            <source src="/monday/records/file/<%= record._id %>" type="<%= record.contentType %>">
+            Your browser does not support the video tag.
+          </video>
+        <% } else if (record.contentType.startsWith('audio')) { %>
+          <audio controls>
+            <source src="/monday/records/file/<%= record._id %>" type="<%= record.contentType %>">
+            Your browser does not support the audio tag.
+          </audio>
+        <% } %>
+        <p>Current File: <a href="/monday/records/file/<%= record._id %>"><%= record.filename %></a></p>
+      </div>
+      <div>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required><%= record.description %></textarea>
+      </div>
+      <button type="submit">Update Record</button>
+    </form>
+  </section>
+</main>
+
+

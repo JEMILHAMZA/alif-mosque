@@ -1,0 +1,28 @@
+<!-- views/imams.ejs -->
+
+<main class="main">
+    <section>
+      <div>
+        <h2>Admin: Imams</h2>
+        <a href="/imams/new">Add New Imam</a>
+        <ul>
+          <% if (imams.length === 0) { %>
+            <li>No imams yet</li>
+          <% } %>
+          <% imams.forEach(imam => { %>
+            <li>
+              <h4><%= imam.name %></h4>
+              <span><%= imam.title %></span>
+              <p><%= imam.description %></p>
+              <img src="/imams/image/<%= imam._id %>" alt="imam image" width="100">
+              <a href="/imams/edit/<%= imam._id %>">Edit</a>
+              <form action="/imams/delete/<%= imam._id %>" method="POST" style="display: inline;">
+                <button type="submit">Delete</button>
+              </form>
+            </li>
+          <% }) %>
+        </ul>
+      </div>
+    </section>
+  </main>
+  
